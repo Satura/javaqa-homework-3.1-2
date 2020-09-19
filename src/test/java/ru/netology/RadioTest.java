@@ -77,9 +77,9 @@ class RadioTest {
         radio.plus();
         assertEquals(9,radio.getCurrentVolume());
         radio.plus();
-        assertEquals(10,radio.getCurrentVolume());
+        assertEquals(100,radio.getCurrentVolume());
         radio.plus();
-        assertEquals(10,radio.getCurrentVolume());
+        assertEquals(100,radio.getCurrentVolume());
     }
 
     @Test
