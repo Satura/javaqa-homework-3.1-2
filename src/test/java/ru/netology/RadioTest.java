@@ -20,28 +20,28 @@ class RadioTest {
 
     @Test
     void shouldSwitchNextStation() {
-        Radio radio = new Radio();
-        radio.setCurrentStation(7);
+        Radio radio = new Radio(15);
+        radio.setCurrentStation(13);
 
         radio.next();
-        assertEquals(8,radio.getCurrentStation());
+        assertEquals(14,radio.getCurrentStation());
         radio.next();
-        assertEquals(9,radio.getCurrentStation());
+        assertEquals(15,radio.getCurrentStation());
         radio.next();
-        assertEquals(0,radio.getCurrentStation());
+        assertEquals(1,radio.getCurrentStation());
     }
 
     @Test
     void shouldSwitchPrevStation() {
         Radio radio = new Radio();
-        radio.setCurrentStation(2);
+        radio.setCurrentStation(3);
 
+        radio.prev();
+        assertEquals(2,radio.getCurrentStation());
         radio.prev();
         assertEquals(1,radio.getCurrentStation());
         radio.prev();
-        assertEquals(0,radio.getCurrentStation());
-        radio.prev();
-        assertEquals(9,radio.getCurrentStation());
+        assertEquals(10,radio.getCurrentStation());
     }
 
     @Test
@@ -80,5 +80,20 @@ class RadioTest {
         assertEquals(10,radio.getCurrentVolume());
         radio.plus();
         assertEquals(10,radio.getCurrentVolume());
+    }
+
+    @Test
+    void shouldSetStationsCount(){
+        Radio radio = new Radio();
+        assertEquals(10,radio.getStationsCount());
+
+        radio.setStationsCount(15);
+        assertEquals(15,radio.getStationsCount());
+    }
+
+    @Test
+    void shouldCreateRadioPresetStations(){
+        Radio radio = new Radio(42);
+        assertEquals(42,radio.getStationsCount());
     }
 }
